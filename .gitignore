@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode
+build/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/SharedData/
+*.xcscmblueprint
+*.xcscheme
+DerivedData/
+
+# Swift
+.swiftpm/
+.build/
