@@ -29,9 +29,22 @@
 		B7F1BAFE2EC3AA9300A021E7 /* navirecoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = navirecoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B7ADE73F2EC466B10003F1CB /* Exceptions for "navireco" folder in "navireco" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = B7F1BAE62EC3AA9200A021E7 /* navireco */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B7F1BAE92EC3AA9200A021E7 /* navireco */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B7ADE73F2EC466B10003F1CB /* Exceptions for "navireco" folder in "navireco" target */,
+			);
 			path = navireco;
 			sourceTree = "<group>";
 		};
@@ -400,6 +413,7 @@
 				DEVELOPMENT_TEAM = 2GTP92GF9H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = navireco/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "現在地のカテゴリを特定するため";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -429,6 +443,7 @@
 				DEVELOPMENT_TEAM = 2GTP92GF9H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = navireco/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "現在地のカテゴリを特定するため";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
