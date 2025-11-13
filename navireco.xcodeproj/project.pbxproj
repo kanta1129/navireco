@@ -45,20 +45,6 @@
 			);
 			target = B7F1BAE62EC3AA9200A021E7 /* navireco */;
 		};
-		B7ADE7842EC599510003F1CB /* Exceptions for "navireco" folder in "navirecoTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"GoogleService-Info.plist",
-			);
-			target = B7F1BAF32EC3AA9300A021E7 /* navirecoTests */;
-		};
-		B7ADE7852EC599510003F1CB /* Exceptions for "navireco" folder in "navirecoUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"GoogleService-Info.plist",
-			);
-			target = B7F1BAFD2EC3AA9300A021E7 /* navirecoUITests */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -66,8 +52,6 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				B7ADE73F2EC466B10003F1CB /* Exceptions for "navireco" folder in "navireco" target */,
-				B7ADE7842EC599510003F1CB /* Exceptions for "navireco" folder in "navirecoTests" target */,
-				B7ADE7852EC599510003F1CB /* Exceptions for "navireco" folder in "navirecoUITests" target */,
 			);
 			path = navireco;
 			sourceTree = "<group>";
