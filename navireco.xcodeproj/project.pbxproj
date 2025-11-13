@@ -6,6 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B7ADE7882EC59AC00003F1CB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B7ADE7872EC59AC00003F1CB /* FirebaseAnalytics */; };
+		B7ADE78A2EC59AC00003F1CB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B7ADE7892EC59AC00003F1CB /* FirebaseAuth */; };
+		B7ADE78C2EC59AC00003F1CB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B7ADE78B2EC59AC00003F1CB /* FirebaseFirestore */; };
+		B7ADE78E2EC59AC00003F1CB /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = B7ADE78D2EC59AC00003F1CB /* FirebaseFunctions */; };
+		B7ADE7902EC59AC00003F1CB /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B7ADE78F2EC59AC00003F1CB /* FirebaseStorage */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		B7F1BAF52EC3AA9300A021E7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -37,6 +45,20 @@
 			);
 			target = B7F1BAE62EC3AA9200A021E7 /* navireco */;
 		};
+		B7ADE7842EC599510003F1CB /* Exceptions for "navireco" folder in "navirecoTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"GoogleService-Info.plist",
+			);
+			target = B7F1BAF32EC3AA9300A021E7 /* navirecoTests */;
+		};
+		B7ADE7852EC599510003F1CB /* Exceptions for "navireco" folder in "navirecoUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"GoogleService-Info.plist",
+			);
+			target = B7F1BAFD2EC3AA9300A021E7 /* navirecoUITests */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -44,6 +66,8 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				B7ADE73F2EC466B10003F1CB /* Exceptions for "navireco" folder in "navireco" target */,
+				B7ADE7842EC599510003F1CB /* Exceptions for "navireco" folder in "navirecoTests" target */,
+				B7ADE7852EC599510003F1CB /* Exceptions for "navireco" folder in "navirecoUITests" target */,
 			);
 			path = navireco;
 			sourceTree = "<group>";
@@ -65,6 +89,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7ADE7882EC59AC00003F1CB /* FirebaseAnalytics in Frameworks */,
+				B7ADE78A2EC59AC00003F1CB /* FirebaseAuth in Frameworks */,
+				B7ADE78C2EC59AC00003F1CB /* FirebaseFirestore in Frameworks */,
+				B7ADE7902EC59AC00003F1CB /* FirebaseStorage in Frameworks */,
+				B7ADE78E2EC59AC00003F1CB /* FirebaseFunctions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +154,11 @@
 			);
 			name = navireco;
 			packageProductDependencies = (
+				B7ADE7872EC59AC00003F1CB /* FirebaseAnalytics */,
+				B7ADE7892EC59AC00003F1CB /* FirebaseAuth */,
+				B7ADE78B2EC59AC00003F1CB /* FirebaseFirestore */,
+				B7ADE78D2EC59AC00003F1CB /* FirebaseFunctions */,
+				B7ADE78F2EC59AC00003F1CB /* FirebaseStorage */,
 			);
 			productName = navireco;
 			productReference = B7F1BAE72EC3AA9200A021E7 /* navireco.app */;
@@ -208,6 +242,9 @@
 			);
 			mainGroup = B7F1BADE2EC3AA9200A021E7;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B7ADE7862EC59AC00003F1CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B7F1BAE82EC3AA9200A021E7 /* Products */;
 			projectDirPath = "";
@@ -414,7 +451,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = navireco/Info.plist;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "現在地のカテゴリを特定するため";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "行動ログを自動的に記録するため、アプリが閉じている間も位置情報を使用";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "地図を表示し、現在の位置情報に基づいた情報を提供するために位置情報を使用";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -444,7 +482,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = navireco/Info.plist;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "現在地のカテゴリを特定するため";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "行動ログを自動的に記録するため、アプリが閉じている間も位置情報を使用";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "地図を表示し、現在の位置情報に基づいた情報を提供するために位置情報を使用";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -575,6 +614,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B7ADE7862EC59AC00003F1CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B7ADE7872EC59AC00003F1CB /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7ADE7862EC59AC00003F1CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		B7ADE7892EC59AC00003F1CB /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7ADE7862EC59AC00003F1CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		B7ADE78B2EC59AC00003F1CB /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7ADE7862EC59AC00003F1CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		B7ADE78D2EC59AC00003F1CB /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7ADE7862EC59AC00003F1CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		B7ADE78F2EC59AC00003F1CB /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7ADE7862EC59AC00003F1CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B7F1BADF2EC3AA9200A021E7 /* Project object */;
 }

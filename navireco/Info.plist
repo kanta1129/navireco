@@ -4,5 +4,9 @@
 <dict>
 	<key>MKDirectionsApplicationSupportedModes</key>
 	<array/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>App processes location updates</string>
+	</array>
 </dict>
 </plist>
