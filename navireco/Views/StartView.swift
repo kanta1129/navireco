@@ -21,7 +21,7 @@ struct StartView: View {
                 .foregroundColor(.accentColor)
                 .padding(.bottom, 20)
 
-            Text("navirecoへようこそ！")
+            Text("PaLogへようこそ！")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(.bottom, 10)

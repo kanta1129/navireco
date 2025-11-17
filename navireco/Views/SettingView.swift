@@ -8,14 +8,13 @@ struct SettingsView: View {
     
     //EnvironmentObjectとしてManagerを受け取る
     @EnvironmentObject var backgroundLocationManager: BackgroundLocationManager
-
-    @State private var recordFrequency: String = "1時間ごと"
+    // "recordFrequency" というキーでUserDefaultsに保存
+    @AppStorage("recordFrequency") private var recordFrequency: String = "1時間ごと"
+    // "isTrackingEnabled" というキーでUserDefaultsに保存
+    @AppStorage("isTrackingEnabled") private var isTrackingEnabled: Bool = true
     @State private var myPlaces: [String] = ["自宅", "大学", "バイト先"]
     @State private var showingLogoutAlert = false // ログアウト確認アラートの表示状態
     @State private var isLoggingOut = false // ログアウト処理中を示すフラグ
-    
-    //追跡設定用のトグル状態変数
-    @State private var isTrackingEnabled: Bool = true // 仮の初期値
     
     var body: some View {
         NavigationView {
@@ -37,6 +36,15 @@ struct SettingsView: View {
                         Text("1時間ごと").tag("1時間ごと")
                     }
                     .pickerStyle(.navigationLink)
+                    .onChange(of: recordFrequency) { _ in
+                        // 頻度が変更されたら、タスクを再スケジュールする
+                        // (ただし、トグルがONの場合のみ)
+                        if isTrackingEnabled {
+                            print("頻度変更: タスクの再スケジュールを要求します")
+                            // startMonitoring が「再スケジュール」を兼ねるように実装する
+                            backgroundLocationManager.startMonitoring()
+                        }
+                    }
                 }
 
                 // MARK: - 自分の場所
@@ -118,12 +126,5 @@ struct SettingsView: View {
 #Preview {
     SettingsView()
         .environmentObject(AppState())
-        // --- ↓↓ ここを修正 ↓↓ ---
-        // プレビュー用にダミーのBackgroundLocationManagerを渡す
-        // これにより、プレビュー環境でCLLocationManagerが初期化されるのを防ぐ（はず）
-        .environmentObject(BackgroundLocationManager())
-        // あるいは、BackgroundLocationManagerのinit()をプレビュー向けに調整するか
-        // もしくは、init()内のCore Location関連のコードを遅延初期化する
-        // 現状は、environmentObjectで渡すだけでも問題解決することが多いです
-        // --- ↑↑ ここまで修正 ↑↑ ---
+        .environmentObject(BackgroundLocationManager.shared)
 }

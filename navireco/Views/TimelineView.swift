@@ -1,66 +1,63 @@
 import SwiftUI
 
 struct TimelineView: View {
+    
+    @StateObject private var viewModel = LocationHistoryViewModel()
+    
     var body: some View {
-        // NavigationViewで囲むことで、上部にタイトルバーを表示し、
-        // 将来的に戻るボタンなどのナビゲーション機能を使えるようにします。
         NavigationView {
             VStack {
-                // MARK: - 日付セレクター
-                HStack {
-                    Button(action: {
-                        // 前の日へ
-                    }) {
-                        Image(systemName: "chevron.left")
-                    }
-                    Spacer()
-                    Text("2024年11月13日 (木)") // 現在表示している日付
-                        .font(.headline)
-                    Spacer()
-                    Button(action: {
-                        // 次の日へ
-                    }) {
-                        Image(systemName: "chevron.right")
-                    }
-                }
-                .padding(.horizontal)
-                
-                Divider() // 区切り線
-
-                // MARK: - 行動ログタイムライン表示エリア
-                // ここに0時〜24時のタイムライングラフを表示します
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 5) {
-                        ForEach(0..<24) { hour in
-                            HStack {
-                                Text(String(format: "%02d:00", hour)) // 時間表示 (例: 09:00)
-                                    .font(.caption)
-                                    .frame(width: 40, alignment: .trailing)
-                                
-                                // ここにその時間の行動を示す棒グラフやテキストが入ります
-                                Rectangle()
-                                    .fill(Color.gray.opacity(0.2))
-                                    .frame(height: 20)
-                                    .overlay(
-                                        Text("行動データなし") // 仮の表示
-                                            .font(.caption2)
-                                            .foregroundColor(.secondary)
-                                    )
+                if viewModel.isLoading {
+                    ProgressView()
+                        .padding()
+                } else if let errorMessage = viewModel.errorMessage {
+                    Text(errorMessage)
+                        .foregroundColor(.red)
+                        .padding()
+                } else if viewModel.locationHistory.isEmpty {
+                    Text("履歴がありません")
+                        .padding()
+                } else {
+                    // ★ 保存したデータをリスト表示
+                    List(viewModel.locationHistory) { location in
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text(location.placeName)
+                                    .font(.headline)
+                                Text(location.category)
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
                             }
-                            .padding(.vertical, 2)
+                            Spacer()
+                            Text(location.date, style: .time) // 時間を表示
+                                .font(.caption)
+                                .foregroundColor(.secondary)
                         }
                     }
-                    .padding()
                 }
-                
-                Spacer() // 上にコンテンツを寄せる
             }
-            .navigationTitle("行動ログ") // 画面上部のタイトル
-            .navigationBarTitleDisplayMode(.inline) // タイトル表示モード
+            .navigationTitle("行動履歴")
+            .onAppear {
+                // Viewが表示されたらデータを取得
+                viewModel.fetchHistory()
+            }
+            .toolbar {
+                // 手動更新ボタン
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        viewModel.fetchHistory()
+                    }) {
+                        Image(systemName: "arrow.clockwise")
+                    }
+                }
+            }
         }
     }
 }
 
-#Preview {
-    TimelineView()
+// プレビュー用
+struct LocationHistoryView_Previews: PreviewProvider {
+    static var previews: some View {
+        TimelineView()
+    }
 }
