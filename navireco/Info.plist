@@ -10,8 +10,8 @@
 	<array/>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>App processes location updates</string>
 		<string>location</string>
+		<string>fetch</string>
 		<string>processing</string>
 	</array>
 </dict>
