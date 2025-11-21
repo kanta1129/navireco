@@ -8,7 +8,6 @@ final class AppState: ObservableObject {
     private var authStateDidChangeListenerHandle: AuthStateDidChangeListenerHandle?
 
     init() {
-        // --- ↓↓ 修正箇所 ↓↓ ---
         // まず、@Publishedプロパティの初期値を直接設定し、完全に初期化を完了させる
         // Auth.auth().currentUser != nil で、現在のログイン状態を初期値とする
         _isAuthenticated = Published(initialValue: Auth.auth().currentUser != nil)
@@ -27,7 +26,6 @@ final class AppState: ObservableObject {
                 }
             }
         }
-        // --- ↑↑ 修正箇所 ↑↑ ---
     }
 
     deinit {
